@@ -110,7 +110,7 @@ public class MainActivity extends AppCompatActivity {
         String jsonString = gson.toJson(charactersList);
         sharedPreferences
                 .edit()
-                .putString("jsonCharactersList", jsonString)
+                .putString("jsonCharactersList", jsonString  )
                 .apply();
 
         Toast.makeText(getApplicationContext(), "List saved", Toast.LENGTH_SHORT).show();

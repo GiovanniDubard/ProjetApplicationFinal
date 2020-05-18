@@ -1,5 +1,6 @@
 package com.example.projetapplicationfinal;
 
+import android.app.Dialog;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,6 +12,7 @@ import java.util.List;
 
 public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ViewHolder> {
     private List<Characters> values;
+    private Dialog myDialog;
 
     // Provide a reference to the views for each data item
     // Complex data items may need more than one view per item, and
@@ -20,13 +22,28 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ViewHolder> {
         public TextView txtHeader;
         public TextView txtFooter;
         public View layout;
+        public View imageIcon;
 
         public ViewHolder(View v) {
             super(v);
             layout = v;
             txtHeader = (TextView) v.findViewById(R.id.firstLine);
             txtFooter = (TextView) v.findViewById(R.id.secondLine);
+            imageIcon = v.findViewById(R.id.imageIcon);
+            myDialog = new Dialog(v.getContext());
         }
+    }
+
+    private void setOnClick(TextView txtHeader, final Characters characters) {
+        txtHeader.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                showPopup(characters);
+            }
+        });
+    }
+
+    private void showPopup(Characters characters) {
     }
 
     public void add(int position, Characters item) {
@@ -72,6 +89,7 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ViewHolder> {
                 remove(position);
             }
         });
+
 
     }
 
