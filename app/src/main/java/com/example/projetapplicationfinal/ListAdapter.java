@@ -1,5 +1,6 @@
 package com.example.projetapplicationfinal;
 
+import android.app.Dialog;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,7 +11,8 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.util.List;
 
 public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ViewHolder> {
-    private List<String> values;
+    private List<Characters> values;
+    private Dialog myDialog;
 
     // Provide a reference to the views for each data item
     // Complex data items may need more than one view per item, and
@@ -20,16 +22,31 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ViewHolder> {
         public TextView txtHeader;
         public TextView txtFooter;
         public View layout;
+        public View imageIcon;
 
         public ViewHolder(View v) {
             super(v);
             layout = v;
             txtHeader = (TextView) v.findViewById(R.id.firstLine);
             txtFooter = (TextView) v.findViewById(R.id.secondLine);
+            imageIcon = v.findViewById(R.id.imageIcon);
+            myDialog = new Dialog(v.getContext());
         }
     }
 
-    public void add(int position, String item) {
+    private void setOnClick(TextView txtHeader, final Characters characters) {
+        txtHeader.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                showPopup(characters);
+            }
+        });
+    }
+
+    private void showPopup(Characters characters) {
+    }
+
+    public void add(int position, Characters item) {
         values.add(position, item);
         notifyItemInserted(position);
     }
@@ -40,7 +57,7 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ViewHolder> {
     }
 
     // Provide a suitable constructor (depends on the kind of dataset)
-    public ListAdapter(List<String> myDataset) {
+    public ListAdapter(List<Characters> myDataset) {
         values = myDataset;
     }
 
@@ -63,8 +80,9 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ViewHolder> {
     public void onBindViewHolder(ViewHolder holder, final int position) {
         // - get element from your dataset at this position
         // - replace the contents of the view with that element
-        final String name = values.get(position);
-        holder.txtHeader.setText(name);
+        final Characters currentCharacters = values.get(position);
+        holder.txtHeader.setText(currentCharacters.getName());
+        holder.txtFooter.setText(currentCharacters.getStatus());
         holder.txtHeader.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -72,7 +90,7 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ViewHolder> {
             }
         });
 
-        holder.txtFooter.setText("Footer: " + name);
+
     }
 
     // Return the size of your dataset (invoked by the layout manager)

@@ -4,12 +4,16 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.widget.Toast;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+import com.google.gson.reflect.TypeToken;
 
+import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -25,6 +29,8 @@ public class MainActivity extends AppCompatActivity {
     private RecyclerView recyclerView;
     private ListAdapter mAdapter;
     private RecyclerView.LayoutManager layoutManager;
+    private SharedPreferences sharedPreferences;
+    private Gson gson;
 
 
     @Override
@@ -32,33 +38,45 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        showList();
+        sharedPreferences = getSharedPreferences("application_rickandmorty", Context.MODE_PRIVATE);
+        gson = new GsonBuilder()
+                .setLenient()
+                .create();
+
+        List<Characters> charactersList = getDataFromCache();
+
+    if(charactersList != null){
+        showList(charactersList);
+    }else{
         makeApiCall();
     }
-        private void showList(){
+
+}
+
+    private List<Characters> getDataFromCache() {
+        String jsonCharacters = sharedPreferences.getString("jsonCharactersList", null);
+
+        if(jsonCharacters == null){
+            return null;
+        }else {
+            Type listType = new TypeToken<List<Characters>>(){}.getType();
+            return gson.fromJson(jsonCharacters, listType);
+        }
+    }
+
+    private void showList(List<Characters> charactersList){
         recyclerView = (RecyclerView) findViewById(R.id.recycler_view);
         recyclerView.setHasFixedSize(true);
-        // use a linear layout manager
         layoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(layoutManager);
-        List<String> input = new ArrayList<>();
-
-
-        for (int i = 0; i < 100; i++) {
-            input.add("Test" + i);
-        }
-
         // define an adapter
-        mAdapter = new ListAdapter(input);
+        mAdapter = new ListAdapter(charactersList);
         recyclerView.setAdapter(mAdapter);
 
     }
 
 
     private void makeApiCall(){
-            Gson gson = new GsonBuilder()
-                    .setLenient()
-                    .create();
 
             Retrofit retrofit = new Retrofit.Builder()
                     .baseUrl(BASE_URL)
@@ -71,9 +89,10 @@ public class MainActivity extends AppCompatActivity {
             call.enqueue(new Callback<RestRickAndMortyResponse>() {
                 @Override
                 public void onResponse(Call<RestRickAndMortyResponse> call, Response<RestRickAndMortyResponse> response) {
-                    if(response.isSuccessful()){
+                    if(response.isSuccessful() && response.body() != null){
                             List<Characters> charactersList = response.body().getResults();
-                            Toast.makeText(getApplicationContext(), "API Success", Toast.LENGTH_SHORT).show();
+                            saveList(charactersList);
+                            showList(charactersList);
                     } else {
                         showError();
                     }
@@ -86,6 +105,16 @@ public class MainActivity extends AppCompatActivity {
             });
 
         }
+
+    private void saveList(List<Characters> charactersList) {
+        String jsonString = gson.toJson(charactersList);
+        sharedPreferences
+                .edit()
+                .putString("jsonCharactersList", jsonString  )
+                .apply();
+
+        Toast.makeText(getApplicationContext(), "List saved", Toast.LENGTH_SHORT).show();
+    }
 
     private void showError() {
         Toast.makeText(getApplicationContext(), "API Error", Toast.LENGTH_SHORT).show();
