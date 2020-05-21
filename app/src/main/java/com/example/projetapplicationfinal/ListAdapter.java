@@ -1,9 +1,12 @@
 package com.example.projetapplicationfinal;
 
 import android.app.Dialog;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.recyclerview.widget.RecyclerView;
@@ -22,15 +25,15 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ViewHolder> {
         public TextView txtHeader;
         public TextView txtFooter;
         public View layout;
-        public View imageIcon;
+        public ImageView imageIcon;
 
         public ViewHolder(View v) {
             super(v);
             layout = v;
             txtHeader = (TextView) v.findViewById(R.id.firstLine);
             txtFooter = (TextView) v.findViewById(R.id.secondLine);
-            imageIcon = v.findViewById(R.id.imageIcon);
-            myDialog = new Dialog(v.getContext());
+            imageIcon = (ImageView) v.findViewById(R.id.imageIcon);
+            myDialog = new Dialog((v.getContext()));
         }
     }
 
@@ -43,7 +46,36 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ViewHolder> {
         });
     }
 
-    private void showPopup(Characters characters) {
+    private void showPopup(Characters currentCharacters) {
+        TextView txtclose, id, type, Name, Gender, Origin, created,Location, Spieces;
+        ImageView imageView;
+        myDialog.setContentView(R.layout.custompopup);
+        id = myDialog.findViewById(R.id.id);
+        type = myDialog.findViewById(R.id.type);
+        Name = myDialog.findViewById(R.id.Name);
+        Gender = myDialog.findViewById(R.id.Gender);
+        Origin = myDialog.findViewById(R.id.Origin);
+        created= myDialog.findViewById(R.id.created);
+        Location = myDialog.findViewById(R.id.Location);
+        Spieces = myDialog.findViewById(R.id.Spieces);
+        imageView = myDialog.findViewById(R.id.imageView);
+        txtclose = (TextView) myDialog.findViewById(R.id.txtclose);
+
+
+
+
+
+
+        txtclose.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                myDialog.dismiss();
+            }
+        });
+        myDialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+        myDialog.show();
+
+
     }
 
     public void add(int position, Characters item) {
@@ -83,14 +115,79 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ViewHolder> {
         final Characters currentCharacters = values.get(position);
         holder.txtHeader.setText(currentCharacters.getName());
         holder.txtFooter.setText(currentCharacters.getStatus());
+        holder.imageIcon.setImageResource(R.mipmap.a);
+
+
+        switch (currentCharacters.getId()){
+
+            case 1:
+                holder.imageIcon.setImageResource(R.mipmap.a);
+                break;
+            case 2:
+                holder.imageIcon.setImageResource(R.mipmap.b);
+                break;
+            case 3:
+                holder.imageIcon.setImageResource(R.mipmap.c);
+                break;
+            case 4:
+                holder.imageIcon.setImageResource(R.mipmap.d);
+                break;
+            case 5:
+                holder.imageIcon.setImageResource(R.mipmap.e);
+                break;
+            case 6:
+                holder.imageIcon.setImageResource(R.mipmap.f);
+                break;
+            case 7:
+                holder.imageIcon.setImageResource(R.mipmap.g);
+                break;
+            case 8:
+                holder.imageIcon.setImageResource(R.mipmap.h);
+                break;
+            case 9:
+                holder.imageIcon.setImageResource(R.mipmap.i);
+                break;
+            case 10:
+                holder.imageIcon.setImageResource(R.mipmap.j);
+                break;
+            case 11:
+                holder.imageIcon.setImageResource(R.mipmap.k);
+                break;
+            case 12:
+                holder.imageIcon.setImageResource(R.mipmap.l);
+                break;
+            case 13:
+                holder.imageIcon.setImageResource(R.mipmap.m);
+                break;
+            case 14:
+                holder.imageIcon.setImageResource(R.mipmap.n);
+                break;
+            case 15:
+                holder.imageIcon.setImageResource(R.mipmap.o);
+                break;
+            case 16:
+                holder.imageIcon.setImageResource(R.mipmap.p);
+                break;
+            case 17:
+                holder.imageIcon.setImageResource(R.mipmap.q);
+                break;
+            case 18:
+                holder.imageIcon.setImageResource(R.mipmap.r);
+                break;
+            case 19:
+                holder.imageIcon.setImageResource(R.mipmap.s);
+                break;
+            case 20:
+                holder.imageIcon.setImageResource(R.mipmap.t);
+                break;
+        }
+
         holder.txtHeader.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                remove(position);
+                showPopup(currentCharacters);
             }
         });
-
-
     }
 
     // Return the size of your dataset (invoked by the layout manager)

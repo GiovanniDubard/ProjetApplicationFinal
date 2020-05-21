@@ -5,6 +5,8 @@ public class Characters {
     private String name;
     private String status;
     private String species;
+    private String Origin;
+    private String Location;
     private String type;
     private String gender;
     private String image;
@@ -21,6 +23,14 @@ public class Characters {
 
     public String getName() {
         return name;
+    }
+
+    public String getLocation() {
+        return Location;
+    }
+
+    public String getOrigin() {
+        return Origin;
     }
 
     public String getStatus() {

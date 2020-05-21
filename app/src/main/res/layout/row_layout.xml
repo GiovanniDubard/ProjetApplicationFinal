@@ -2,11 +2,12 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
     android:layout_height="?android:attr/listPreferredItemHeight"
-    android:padding="6dip" >
+    android:padding="6dip"
+    android:onClick="ShowPopup">
 
     <ImageView
-        android:id="@+id/icon"
-        android:layout_width="wrap_content"
+        android:id="@+id/imageIcon"
+        android:layout_width="70dp"
         android:layout_height="fill_parent"
         android:layout_alignParentBottom="true"
         android:layout_alignParentTop="true"
@@ -20,9 +21,10 @@
         android:layout_height="26dip"
         android:layout_alignParentBottom="true"
         android:layout_alignParentRight="true"
-        android:layout_toRightOf="@id/icon"
+        android:layout_toRightOf="@id/imageIcon"
         android:ellipsize="marquee"
         android:text="Description"
+        android:textColor="@color/green"
         android:textSize="12sp"
         android:singleLine="true" />
 
@@ -34,9 +36,11 @@
         android:layout_alignParentRight="true"
         android:layout_alignParentTop="true"
         android:layout_alignWithParentIfMissing="true"
-        android:layout_toRightOf="@id/icon"
+        android:layout_toRightOf="@id/imageIcon"
         android:gravity="center_vertical"
         android:text="Example application"
+        android:textColor="@color/white"
+        android:textStyle="bold"
         android:textSize="16sp" />
 
 </RelativeLayout>
