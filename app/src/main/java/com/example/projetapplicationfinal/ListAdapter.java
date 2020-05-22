@@ -62,8 +62,79 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ViewHolder> {
         txtclose = (TextView) myDialog.findViewById(R.id.txtclose);
 
 
+        /*id.setText(currentCharacters.getId());
+        type.setText(currentCharacters.getType());
+        Name.setText(currentCharacters.getName());
+        Gender.setText(currentCharacters.getGender());
+        Origin.setText(currentCharacters.getOrigin());
+        created.setText(currentCharacters.getCreated());
+        Location.setText(currentCharacters.getLocation());
+        Spieces.setText(currentCharacters.getSpecies());*/
 
+            switch (currentCharacters.getId()){
+                case 1:
+                    imageView.setImageResource(R.drawable.a);
+                    type.setText(currentCharacters.getType());
+                    break;
+                case 2:
+                    imageView.setImageResource(R.drawable.b);
+                    break;
+                case 3:
+                    imageView.setImageResource(R.drawable.c);;
+                    break;
+                case 4:
+                    imageView.setImageResource(R.drawable.d);
+                    break;
+                case 5:
+                    imageView.setImageResource(R.drawable.e);;
+                    break;
+                case 6:
+                    imageView.setImageResource(R.drawable.f);;
+                    break;
+                case 7:
+                    imageView.setImageResource(R.drawable.g);;
+                    break;
+                case 8:
+                    imageView.setImageResource(R.drawable.h);;
+                    break;
+                case 9:
+                    imageView.setImageResource(R.drawable.i);;
+                    break;
+                case 10:
+                    imageView.setImageResource(R.drawable.j);;
+                    break;
+                case 11:
+                    imageView.setImageResource(R.drawable.k);;
+                    break;
+                case 12:
+                    imageView.setImageResource(R.drawable.l);;
+                    break;
+                case 13:
+                    imageView.setImageResource(R.drawable.m);;
+                    break;
+                case 14:
+                    imageView.setImageResource(R.drawable.n);;
+                    break;
+                case 15:
+                    imageView.setImageResource(R.drawable.o);;
+                    break;
+                case 16:
+                    imageView.setImageResource(R.drawable.p);;
+                    break;
+                case 17:
+                    imageView.setImageResource(R.drawable.q);;
+                    break;
+                case 18:
+                    imageView.setImageResource(R.drawable.r);;
+                    break;
+                case 19:
+                    imageView.setImageResource(R.drawable.s);;
+                    break;
+                case 20:
+                    imageView.setImageResource(R.drawable.t);;
+                    break;
 
+        }
 
 
         txtclose.setOnClickListener(new View.OnClickListener() {
@@ -120,66 +191,66 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ViewHolder> {
 
         switch (currentCharacters.getId()){
 
-            case 1:
-                holder.imageIcon.setImageResource(R.mipmap.a);
-                break;
-            case 2:
-                holder.imageIcon.setImageResource(R.mipmap.b);
-                break;
-            case 3:
-                holder.imageIcon.setImageResource(R.mipmap.c);
-                break;
-            case 4:
-                holder.imageIcon.setImageResource(R.mipmap.d);
-                break;
-            case 5:
-                holder.imageIcon.setImageResource(R.mipmap.e);
-                break;
-            case 6:
-                holder.imageIcon.setImageResource(R.mipmap.f);
-                break;
-            case 7:
-                holder.imageIcon.setImageResource(R.mipmap.g);
-                break;
-            case 8:
-                holder.imageIcon.setImageResource(R.mipmap.h);
-                break;
-            case 9:
-                holder.imageIcon.setImageResource(R.mipmap.i);
-                break;
-            case 10:
-                holder.imageIcon.setImageResource(R.mipmap.j);
-                break;
-            case 11:
-                holder.imageIcon.setImageResource(R.mipmap.k);
-                break;
-            case 12:
-                holder.imageIcon.setImageResource(R.mipmap.l);
-                break;
-            case 13:
-                holder.imageIcon.setImageResource(R.mipmap.m);
-                break;
-            case 14:
-                holder.imageIcon.setImageResource(R.mipmap.n);
-                break;
-            case 15:
-                holder.imageIcon.setImageResource(R.mipmap.o);
-                break;
-            case 16:
-                holder.imageIcon.setImageResource(R.mipmap.p);
-                break;
-            case 17:
-                holder.imageIcon.setImageResource(R.mipmap.q);
-                break;
-            case 18:
-                holder.imageIcon.setImageResource(R.mipmap.r);
-                break;
-            case 19:
-                holder.imageIcon.setImageResource(R.mipmap.s);
-                break;
-            case 20:
-                holder.imageIcon.setImageResource(R.mipmap.t);
-                break;
+                case 1:
+                    holder.imageIcon.setImageResource(R.mipmap.a);
+                    break;
+                case 2:
+                    holder.imageIcon.setImageResource(R.mipmap.b);
+                    break;
+                case 3:
+                    holder.imageIcon.setImageResource(R.mipmap.c);
+                    break;
+                case 4:
+                    holder.imageIcon.setImageResource(R.mipmap.d);
+                    break;
+                case 5:
+                    holder.imageIcon.setImageResource(R.mipmap.e);
+                    break;
+                case 6:
+                    holder.imageIcon.setImageResource(R.mipmap.f);
+                    break;
+                case 7:
+                    holder.imageIcon.setImageResource(R.mipmap.g);
+                    break;
+                case 8:
+                    holder.imageIcon.setImageResource(R.mipmap.h);
+                    break;
+                case 9:
+                    holder.imageIcon.setImageResource(R.mipmap.i);
+                    break;
+                case 10:
+                    holder.imageIcon.setImageResource(R.mipmap.j);
+                    break;
+                case 11:
+                    holder.imageIcon.setImageResource(R.mipmap.k);
+                    break;
+                case 12:
+                    holder.imageIcon.setImageResource(R.mipmap.l);
+                    break;
+                case 13:
+                    holder.imageIcon.setImageResource(R.mipmap.m);
+                    break;
+                case 14:
+                    holder.imageIcon.setImageResource(R.mipmap.n);
+                    break;
+                case 15:
+                    holder.imageIcon.setImageResource(R.mipmap.o);
+                    break;
+                case 16:
+                    holder.imageIcon.setImageResource(R.mipmap.p);
+                    break;
+                case 17:
+                    holder.imageIcon.setImageResource(R.mipmap.q);
+                    break;
+                case 18:
+                    holder.imageIcon.setImageResource(R.mipmap.r);
+                    break;
+                case 19:
+                    holder.imageIcon.setImageResource(R.mipmap.s);
+                    break;
+                case 20:
+                    holder.imageIcon.setImageResource(R.mipmap.t);
+                    break;
         }
 
         holder.txtHeader.setOnClickListener(new View.OnClickListener() {
