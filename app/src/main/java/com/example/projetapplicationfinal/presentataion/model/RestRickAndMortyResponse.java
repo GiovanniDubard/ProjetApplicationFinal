@@ -1,4 +1,4 @@
-package com.example.projetapplicationfinal;
+package com.example.projetapplicationfinal.presentataion.model;
 
 import java.util.List;
 

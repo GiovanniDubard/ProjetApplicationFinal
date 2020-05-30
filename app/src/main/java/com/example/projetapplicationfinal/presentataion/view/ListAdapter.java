@@ -1,4 +1,4 @@
-package com.example.projetapplicationfinal;
+package com.example.projetapplicationfinal.presentataion.view;
 
 import android.app.Dialog;
 import android.graphics.Color;
@@ -11,11 +11,17 @@ import android.widget.TextView;
 
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.projetapplicationfinal.R;
+import com.example.projetapplicationfinal.presentataion.model.Characters;
+
 import java.util.List;
+
+import static com.example.projetapplicationfinal.R.*;
 
 public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ViewHolder> {
     private List<Characters> values;
     private Dialog myDialog;
+
 
     // Provide a reference to the views for each data item
     // Complex data items may need more than one view per item, and
@@ -30,9 +36,9 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ViewHolder> {
         public ViewHolder(View v) {
             super(v);
             layout = v;
-            txtHeader = (TextView) v.findViewById(R.id.firstLine);
-            txtFooter = (TextView) v.findViewById(R.id.secondLine);
-            imageIcon = (ImageView) v.findViewById(R.id.imageIcon);
+            txtHeader = (TextView) v.findViewById(id.firstLine);
+            txtFooter = (TextView) v.findViewById(id.secondLine);
+            imageIcon = (ImageView) v.findViewById(id.imageIcon);
             myDialog = new Dialog((v.getContext()));
         }
     }
@@ -47,91 +53,90 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ViewHolder> {
     }
 
     private void showPopup(Characters currentCharacters) {
-        TextView txtclose, id, type, Name, Gender, Origin, created,Location, Spieces;
+        TextView txtclose, id, type, name, gender, origin, created,location, spieces;
         ImageView imageView;
-        myDialog.setContentView(R.layout.custompopup);
+        myDialog.setContentView(layout.custompopup);
         id = myDialog.findViewById(R.id.id);
         type = myDialog.findViewById(R.id.type);
-        Name = myDialog.findViewById(R.id.Name);
-        Gender = myDialog.findViewById(R.id.Gender);
-        Origin = myDialog.findViewById(R.id.Origin);
+        name = myDialog.findViewById(R.id.name);
+        gender = myDialog.findViewById(R.id.gender);
+        origin = myDialog.findViewById(R.id.origin);
         created= myDialog.findViewById(R.id.created);
-        Location = myDialog.findViewById(R.id.Location);
-        Spieces = myDialog.findViewById(R.id.Spieces);
+        location = myDialog.findViewById(R.id.location);
+        spieces = myDialog.findViewById(R.id.spieces);
         imageView = myDialog.findViewById(R.id.imageView);
         txtclose = (TextView) myDialog.findViewById(R.id.txtclose);
 
 
-        /*id.setText(currentCharacters.getId());
-        type.setText(currentCharacters.getType());
-        Name.setText(currentCharacters.getName());
-        Gender.setText(currentCharacters.getGender());
-        Origin.setText(currentCharacters.getOrigin());
-        created.setText(currentCharacters.getCreated());
-        Location.setText(currentCharacters.getLocation());
-        Spieces.setText(currentCharacters.getSpecies());*/
+        id.setText(""+currentCharacters.getId());
+        type.setText("Type : " + currentCharacters.getType());
+        name.setText(currentCharacters.getName());
+        gender.setText("Gender : " + currentCharacters.getGender());
+        origin.setText("Origin : " + currentCharacters.getOrigin());
+        created.setText("Created : " + currentCharacters.getCreated());
+        location.setText("Location : " + currentCharacters.getLocation());
+        spieces.setText("Spieces : " + currentCharacters.getSpecies());
 
             switch (currentCharacters.getId()){
                 case 1:
-                    imageView.setImageResource(R.drawable.a);
-                    type.setText(currentCharacters.getType());
+                    imageView.setImageResource(drawable.a);
                     break;
                 case 2:
-                    imageView.setImageResource(R.drawable.b);
+                    imageView.setImageResource(drawable.b);
                     break;
                 case 3:
-                    imageView.setImageResource(R.drawable.c);;
+                    imageView.setImageResource(drawable.c);;
                     break;
                 case 4:
-                    imageView.setImageResource(R.drawable.d);
+                    imageView.setImageResource(drawable.d);
                     break;
                 case 5:
-                    imageView.setImageResource(R.drawable.e);;
+                    imageView.setImageResource(drawable.e);;
                     break;
                 case 6:
-                    imageView.setImageResource(R.drawable.f);;
+                    imageView.setImageResource(drawable.f);;
                     break;
                 case 7:
-                    imageView.setImageResource(R.drawable.g);;
+                    imageView.setImageResource(drawable.g);;
                     break;
                 case 8:
-                    imageView.setImageResource(R.drawable.h);;
+                    imageView.setImageResource(drawable.h);;
                     break;
                 case 9:
-                    imageView.setImageResource(R.drawable.i);;
+                    imageView.setImageResource(drawable.i);;
                     break;
                 case 10:
-                    imageView.setImageResource(R.drawable.j);;
+                    imageView.setImageResource(drawable.j);;
                     break;
                 case 11:
-                    imageView.setImageResource(R.drawable.k);;
+                    imageView.setImageResource(drawable.k);;
                     break;
                 case 12:
-                    imageView.setImageResource(R.drawable.l);;
+                    imageView.setImageResource(drawable.l);;
                     break;
                 case 13:
-                    imageView.setImageResource(R.drawable.m);;
+                    imageView.setImageResource(drawable.m);;
                     break;
                 case 14:
-                    imageView.setImageResource(R.drawable.n);;
+                    imageView.setImageResource(drawable.n);;
                     break;
                 case 15:
-                    imageView.setImageResource(R.drawable.o);;
+                    imageView.setImageResource(drawable.o);;
                     break;
                 case 16:
-                    imageView.setImageResource(R.drawable.p);;
+                    imageView.setImageResource(drawable.p);;
                     break;
                 case 17:
-                    imageView.setImageResource(R.drawable.q);;
+                    imageView.setImageResource(drawable.q);;
                     break;
                 case 18:
-                    imageView.setImageResource(R.drawable.r);;
+                    imageView.setImageResource(drawable.r);;
                     break;
                 case 19:
-                    imageView.setImageResource(R.drawable.s);;
+                    imageView.setImageResource(drawable.s);;
                     break;
                 case 20:
-                    imageView.setImageResource(R.drawable.t);;
+                    imageView.setImageResource(drawable.t);;
                     break;
 
         }
@@ -172,7 +177,7 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ViewHolder> {
         LayoutInflater inflater = LayoutInflater.from(
                 parent.getContext());
         View v =
-                inflater.inflate(R.layout.row_layout, parent, false);
+                inflater.inflate(layout.row_layout, parent, false);
         // set the view's size, margins, paddings and layout parameters
         ViewHolder vh = new ViewHolder(v);
         return vh;
@@ -186,70 +191,70 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ViewHolder> {
         final Characters currentCharacters = values.get(position);
         holder.txtHeader.setText(currentCharacters.getName());
         holder.txtFooter.setText(currentCharacters.getStatus());
-        holder.imageIcon.setImageResource(R.mipmap.a);
+        holder.imageIcon.setImageResource(mipmap.a);
 
 
         switch (currentCharacters.getId()){
 
                 case 1:
-                    holder.imageIcon.setImageResource(R.mipmap.a);
+                    holder.imageIcon.setImageResource(mipmap.a);
                     break;
                 case 2:
-                    holder.imageIcon.setImageResource(R.mipmap.b);
+                    holder.imageIcon.setImageResource(mipmap.b);
                     break;
                 case 3:
-                    holder.imageIcon.setImageResource(R.mipmap.c);
+                    holder.imageIcon.setImageResource(mipmap.c);
                     break;
                 case 4:
-                    holder.imageIcon.setImageResource(R.mipmap.d);
+                    holder.imageIcon.setImageResource(mipmap.d);
                     break;
                 case 5:
-                    holder.imageIcon.setImageResource(R.mipmap.e);
+                    holder.imageIcon.setImageResource(mipmap.e);
                     break;
                 case 6:
-                    holder.imageIcon.setImageResource(R.mipmap.f);
+                    holder.imageIcon.setImageResource(mipmap.f);
                     break;
                 case 7:
-                    holder.imageIcon.setImageResource(R.mipmap.g);
+                    holder.imageIcon.setImageResource(mipmap.g);
                     break;
                 case 8:
-                    holder.imageIcon.setImageResource(R.mipmap.h);
+                    holder.imageIcon.setImageResource(mipmap.h);
                     break;
                 case 9:
-                    holder.imageIcon.setImageResource(R.mipmap.i);
+                    holder.imageIcon.setImageResource(mipmap.i);
                     break;
                 case 10:
-                    holder.imageIcon.setImageResource(R.mipmap.j);
+                    holder.imageIcon.setImageResource(mipmap.j);
                     break;
                 case 11:
-                    holder.imageIcon.setImageResource(R.mipmap.k);
+                    holder.imageIcon.setImageResource(mipmap.k);
                     break;
                 case 12:
-                    holder.imageIcon.setImageResource(R.mipmap.l);
+                    holder.imageIcon.setImageResource(mipmap.l);
                     break;
                 case 13:
-                    holder.imageIcon.setImageResource(R.mipmap.m);
+                    holder.imageIcon.setImageResource(mipmap.m);
                     break;
                 case 14:
-                    holder.imageIcon.setImageResource(R.mipmap.n);
+                    holder.imageIcon.setImageResource(mipmap.n);
                     break;
                 case 15:
-                    holder.imageIcon.setImageResource(R.mipmap.o);
+                    holder.imageIcon.setImageResource(mipmap.o);
                     break;
                 case 16:
-                    holder.imageIcon.setImageResource(R.mipmap.p);
+                    holder.imageIcon.setImageResource(mipmap.p);
                     break;
                 case 17:
-                    holder.imageIcon.setImageResource(R.mipmap.q);
+                    holder.imageIcon.setImageResource(mipmap.q);
                     break;
                 case 18:
-                    holder.imageIcon.setImageResource(R.mipmap.r);
+                    holder.imageIcon.setImageResource(mipmap.r);
                     break;
                 case 19:
-                    holder.imageIcon.setImageResource(R.mipmap.s);
+                    holder.imageIcon.setImageResource(mipmap.s);
                     break;
                 case 20:
-                    holder.imageIcon.setImageResource(R.mipmap.t);
+                    holder.imageIcon.setImageResource(mipmap.t);
                     break;
         }
 

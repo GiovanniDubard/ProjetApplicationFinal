@@ -1,8 +1,9 @@
-package com.example.projetapplicationfinal;
+package com.example.projetapplicationfinal.data;
+
+import com.example.projetapplicationfinal.presentataion.model.RestRickAndMortyResponse;
 
 import retrofit2.Call;
 import retrofit2.http.GET;
-import retrofit2.http.Query;
 
 public interface RickApi {
     @GET("RickAndMortyAPI.json")

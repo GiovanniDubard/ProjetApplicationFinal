@@ -1,26 +1,24 @@
-package com.example.projetapplicationfinal;
+package com.example.projetapplicationfinal.presentataion.view;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.app.Dialog;
 import android.content.Context;
 import android.content.SharedPreferences;
-import android.graphics.Color;
-import android.graphics.drawable.ColorDrawable;
+import android.media.MediaPlayer;
 import android.os.Bundle;
-import android.view.View;
-import android.widget.ImageView;
-import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.projetapplicationfinal.R;
+import com.example.projetapplicationfinal.data.RickApi;
+import com.example.projetapplicationfinal.presentataion.model.Characters;
+import com.example.projetapplicationfinal.presentataion.model.RestRickAndMortyResponse;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;
 
 import java.lang.reflect.Type;
-import java.util.ArrayList;
 import java.util.List;
 
 import retrofit2.Call;
@@ -30,6 +28,7 @@ import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 public class MainActivity extends AppCompatActivity {
+    MediaPlayer player;
     private static final String BASE_URL = "https://raw.githubusercontent.com/GiovanniDubard/ProjetApplicationFinal/master/";
 
     private RecyclerView recyclerView;
@@ -37,7 +36,6 @@ public class MainActivity extends AppCompatActivity {
     private RecyclerView.LayoutManager layoutManager;
     private SharedPreferences sharedPreferences;
     private Gson gson;
-    private Dialog myDialog;
 
 
     @Override
@@ -52,13 +50,14 @@ public class MainActivity extends AppCompatActivity {
 
         List<Characters> charactersList = getDataFromCache();
 
-    if(charactersList != null){
-        showList(charactersList);
-    }else{
-        makeApiCall();
+        if (charactersList != null) {
+            showList(charactersList);
+        } else {
+            makeApiCall();
+        }
+
     }
 
-}
 
     private List<Characters> getDataFromCache() {
         String jsonCharacters = sharedPreferences.getString("jsonCharactersList", null);
