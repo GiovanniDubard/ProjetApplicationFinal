@@ -11,6 +11,7 @@ import android.os.Bundle;
 import android.widget.Toast;
 
 import com.example.projetapplicationfinal.R;
+import com.example.projetapplicationfinal.Singletons;
 import com.example.projetapplicationfinal.data.RickApi;
 import com.example.projetapplicationfinal.presentataion.controller.MainController;
 import com.example.projetapplicationfinal.presentataion.model.Characters;
@@ -45,10 +46,8 @@ public class MainActivity extends AppCompatActivity {
 
         controller = new MainController(
                 this,
-                new GsonBuilder()
-                .setLenient()
-                .create(),
-                getSharedPreferences("application_rickandmorty", Context.MODE_PRIVATE)
+                Singletons.getGson(),
+                Singletons.getSharedPreferences(getApplicationContext())
         );
         controller.onStart();
 
