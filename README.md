@@ -22,9 +22,10 @@ Petite application permettant d'afficher la liste des personnages du célèbre s
 ## Fonctionnalités
 ### Premier écran
 Affichage de la liste des personnages avec leurs noms, leurs statut (viavnt ou mort dans la série) ainsi que leur photo en guise d'icône 
-
+![Screenshot_1590850576](https://user-images.githubusercontent.com/63311084/83353341-2ca6dc00-a352-11ea-9b85-e54a45b46ddc.png)
 
 ### Second écran
 Affichage des caratéristiques de chaque personnages accompagnés de leur photo
 
-https://github.com/GiovanniDubard/ProjetApplicationFinal/blob/master/Screenshot_1590920102.png
+
+
