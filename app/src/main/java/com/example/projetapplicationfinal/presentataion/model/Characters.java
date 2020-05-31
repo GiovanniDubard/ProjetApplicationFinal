@@ -1,4 +1,4 @@
-package com.example.projetapplicationfinal;
+package com.example.projetapplicationfinal.presentataion.model;
 
 public class Characters {
     private Integer id;
