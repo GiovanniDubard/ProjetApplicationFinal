@@ -18,6 +18,7 @@ Petite application permettant d'afficher la liste des personnages du célèbre s
 ### Bonus 
 - Utilsation d'une popup
 - Color Design
+- Ajout d'une musique de fond
 
 ## Fonctionnalités
 ### Premier écran
