@@ -26,7 +26,7 @@ Affichage de la liste des personnages avec leurs noms, leurs statut (viavnt ou m
 ![Screenshot_1590850576](https://user-images.githubusercontent.com/63311084/83353341-2ca6dc00-a352-11ea-9b85-e54a45b46ddc.png)
 
 ### Second écran
-Affichage des caratéristiques de chaque personnages accompagnés de leur photo
+Affichage des caratéristiques de chaque personnages accompagnées de leur photo
 
 ![Screenshot_1590920102](https://user-images.githubusercontent.com/63311084/83353342-2d3f7280-a352-11ea-911e-0a85805d8abf.png)
 
