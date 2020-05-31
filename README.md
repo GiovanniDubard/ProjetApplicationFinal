@@ -7,7 +7,7 @@ Petite application permettant d'afficher la liste des personnages du célèbre s
 - Installation d'Android Studio 
 - Récupérer la branche develop
 ```bash
-https://github.com/chewriken/Projet_Android.git
+https://github.com/GiovanniDubard/ProjetApplicationFinal.git
 ```
 - API Rest de Rick et Morty
 
