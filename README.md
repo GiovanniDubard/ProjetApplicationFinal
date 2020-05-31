@@ -31,3 +31,10 @@ Affichage des caratéristiques de chaque personnages accompagnées de leur photo
 ![Screenshot_1590920102](https://user-images.githubusercontent.com/63311084/83353342-2d3f7280-a352-11ea-911e-0a85805d8abf.png)
 
 
+Sur cette popup vous pourrez connaître toutes les informations concernant vos personnages préférés comme :
+- L'espèce
+- Le genre
+- L'origne
+- Le lieu d'habitation
+- La date de création
+
