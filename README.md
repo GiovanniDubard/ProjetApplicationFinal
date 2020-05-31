@@ -26,3 +26,5 @@ Affichage de la liste des personnages avec leurs noms, leurs statut (viavnt ou m
 
 ### Second écran
 Affichage des caratéristiques de chaque personnages accompagnés de leur photo
+
+https://github.com/GiovanniDubard/ProjetApplicationFinal/blob/master/Screenshot_1590920102.png
