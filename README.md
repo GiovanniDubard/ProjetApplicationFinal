@@ -39,3 +39,5 @@ Sur cette popup vous pourrez connaître toutes les informations concernant vos p
 - Le lieu d'habitation
 - La date de création
 
+Afin de pouvoir visualiser tout cela je vous ai fait une petite vidéo démo disponible sur Git vous permettant un aperçu de l'application.
+
