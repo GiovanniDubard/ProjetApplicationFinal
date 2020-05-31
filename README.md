@@ -40,4 +40,4 @@ Sur cette popup vous pourrez connaître toutes les informations concernant vos p
 - La date de création
 
 Afin de pouvoir visualiser tout cela je vous ai fait une petite vidéo démo disponible sur Git vous permettant un aperçu de l'application.
-
+- Lien de la vidéo: https://github.com/GiovanniDubard/ProjetApplicationFinal/blob/master/D%C3%A9mo%20Application.mp4
