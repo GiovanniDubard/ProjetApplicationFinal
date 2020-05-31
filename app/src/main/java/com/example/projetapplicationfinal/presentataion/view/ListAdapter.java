@@ -21,13 +21,15 @@ import static com.example.projetapplicationfinal.R.*;
 public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ViewHolder> {
     private List<Characters> values;
     private Dialog myDialog;
+    private OnItemClickListener listener;
+
+    public interface OnItemClickListener {
+        void onItemClick(Characters item);
+    }
 
 
-    // Provide a reference to the views for each data item
-    // Complex data items may need more than one view per item, and
-    // you provide access to all the views for a data item in a view holder
+
     public class ViewHolder extends RecyclerView.ViewHolder {
-        // each data item is just a string in this case
         public TextView txtHeader;
         public TextView txtFooter;
         public View layout;
@@ -165,8 +167,9 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ViewHolder> {
     }
 
     // Provide a suitable constructor (depends on the kind of dataset)
-    public ListAdapter(List<Characters> myDataset) {
-        values = myDataset;
+    public ListAdapter(List<Characters> myDataset, OnItemClickListener listener) {
+        this.values = myDataset;
+        this.listener = listener;
     }
 
     // Create new views (invoked by the layout manager)
@@ -193,8 +196,19 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ViewHolder> {
         holder.txtFooter.setText(currentCharacters.getStatus());
         holder.imageIcon.setImageResource(mipmap.a);
 
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                listener.onItemClick(currentCharacters);
+            }
+        });
 
-        switch (currentCharacters.getId()){
+
+
+
+        switch(currentCharacters.getId())
+
+            {
 
                 case 1:
                     holder.imageIcon.setImageResource(mipmap.a);
@@ -256,14 +270,17 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ViewHolder> {
                 case 20:
                     holder.imageIcon.setImageResource(mipmap.t);
                     break;
-        }
+            }
 
-        holder.txtHeader.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
+        holder.txtHeader.setOnClickListener(new View.OnClickListener()
+
+            {
+                @Override
+                public void onClick (View v){
                 showPopup(currentCharacters);
             }
-        });
+            });
+
     }
 
     // Return the size of your dataset (invoked by the layout manager)
